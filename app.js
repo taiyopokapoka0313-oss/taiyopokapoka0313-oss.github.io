@@ -75,7 +75,14 @@
     }
   }
 
-  document.addEventListener("langchange", function () { setMail(); setStores(); setForm(); });
+  // プライバシーポリシー：日本語は privacy/、それ以外の言語は英語版 privacy/en/
+  var privLink = document.getElementById("privacy-link");
+  function setPrivacy() {
+    if (privLink) { privLink.href = (I.lang && I.lang() !== "ja") ? "privacy/en/" : "privacy/"; }
+  }
+  setPrivacy();
+
+  document.addEventListener("langchange", function () { setMail(); setStores(); setForm(); setPrivacy(); });
 
   // ---- トップのアイコン列を横にループ表示（動きを減らす設定の人は、そのまま中央に並べる） ----
   var hi = document.querySelector(".hero-icons");

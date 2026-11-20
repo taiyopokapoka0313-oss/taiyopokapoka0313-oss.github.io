@@ -153,19 +153,16 @@ img { max-width: 100%; display: block; }
   .card .icon { width: 48px; height: 48px; border-radius: 12px; }
 }
 
-/* ---------- faq ---------- */
-.faq { display: grid; gap: 10px; }
-.faq details { background: var(--o-bg); border: 1.5px solid var(--o-bd); border-radius: 16px; overflow: hidden; }
-.faq summary {
-  list-style: none; cursor: pointer; padding: 16px 48px 16px 16px; font-weight: 700; position: relative; display: flex; gap: 12px; align-items: flex-start;
-}
-.faq summary::-webkit-details-marker { display: none; }
-.faq summary::after { content: "+"; position: absolute; right: 18px; top: 12px; font-size: 22px; color: var(--o-tx); transition: transform .2s; }
-.faq details[open] summary::after { transform: rotate(45deg); }
-.q { flex: none; width: 24px; height: 24px; border-radius: 50%; background: #fff; border: 1.5px solid var(--o-bd); color: var(--o-tx); font-size: 13px; display: grid; place-items: center; margin-top: 2px; }
-.a { padding: 0 16px 18px 52px; color: var(--muted); font-size: 14.5px; }
-.a strong { color: var(--text); }
-.faq details[hidden] { display: none; }
+/* ---------- 文書ページ（プライバシーポリシーなど） ---------- */
+.doc { max-width: 760px; padding: 48px 0 64px; }
+.doc h1 { font-size: clamp(26px, 5vw, 36px); line-height: 1.4; margin: 4px 0 8px; }
+.doc h2 { font-size: 18px; line-height: 1.5; margin: 36px 0 8px; padding-left: 12px; border-left: 4px solid var(--o-bd); }
+.doc p, .doc li { font-size: 15.5px; }
+.doc ul { padding-left: 1.3em; }
+.doc li { margin: 6px 0; }
+.doc .lead { margin-top: 24px; padding: 16px 18px; background: var(--o-bg); border: 1.5px solid var(--o-bd); border-radius: 16px; }
+.doc .note { margin-top: 40px; }
+.doc a { overflow-wrap: anywhere; }
 
 /* ---------- contact ---------- */
 .contact-btns { display: flex; gap: 12px; justify-content: flex-start; flex-wrap: wrap; }
