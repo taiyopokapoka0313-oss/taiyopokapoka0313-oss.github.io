@@ -22,6 +22,7 @@
       contactTitle: "お問い合わせ",
       mail: "メール", xBtn: "Xでメッセージを送る",
       privacy: "プライバシーポリシー",
+      terms: "免責事項・ご利用上の注意",
       mailSubject: "【アプリのお問い合わせ】",
       mailBody: "アプリ名：\n端末（例：iPhone 15）：\niOSのバージョン：\n\nお問い合わせ内容：\n"
     },
@@ -38,6 +39,7 @@
       contactTitle: "Contact us",
       mail: "Email", xBtn: "Message us on X",
       privacy: "Privacy Policy",
+      terms: "Disclaimer",
       mailSubject: "[App inquiry]",
       mailBody: "App name:\nDevice (e.g. iPhone 15):\niOS version:\n\nYour message:\n"
     },
@@ -54,6 +56,7 @@
       contactTitle: "문의하기",
       mail: "이메일", xBtn: "X로 메시지 보내기",
       privacy: "개인정보 처리방침",
+      terms: "면책 사항",
       mailSubject: "[앱 문의]",
       mailBody: "앱 이름:\n기기(예: iPhone 15):\niOS 버전:\n\n문의 내용:\n"
     },
@@ -70,6 +73,7 @@
       contactTitle: "Nous contacter",
       mail: "E-mail", xBtn: "Nous écrire sur X",
       privacy: "Politique de confidentialité",
+      terms: "Avertissement",
       mailSubject: "[Question sur une appli]",
       mailBody: "Nom de l'appli :\nAppareil (ex. iPhone 15) :\nVersion d'iOS :\n\nVotre message :\n"
     }

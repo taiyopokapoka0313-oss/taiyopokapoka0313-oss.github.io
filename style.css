@@ -164,6 +164,34 @@ img { max-width: 100%; display: block; }
 .doc .note { margin-top: 40px; }
 .doc a { overflow-wrap: anywhere; }
 
+/* 免責事項ページ：左にアプリ選択（スマホでは上の横スクロール）、右に本文 */
+.terms { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 40px; align-items: start; padding-top: 32px; }
+.terms .terms-main { max-width: none; padding-top: 16px; }
+.side { position: sticky; top: 72px; }
+.side-t { margin: 0 0 8px; font-size: 12px; font-weight: 800; letter-spacing: .12em; color: var(--muted); }
+.side-nav { display: grid; gap: 6px; }
+.side-nav a {
+  display: block; padding: 10px 14px; border-radius: 14px; text-decoration: none; font-size: 14.5px; font-weight: 700; line-height: 1.5;
+  color: var(--text); background: var(--g-bg); border: 1.5px solid transparent;
+}
+.side-nav a:hover { background: var(--o-bg); }
+.side-nav a[aria-current="true"] { color: var(--o-tx); background: var(--o-bg); border-color: var(--o-bd); }
+.app-doc[hidden] { display: none; }
+.app-doc + .app-doc { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--line); }
+.terms-js .app-doc + .app-doc { margin-top: 0; padding-top: 0; border-top: 0; }
+.app-doc > h2 { font-size: clamp(22px, 4vw, 28px); margin: 24px 0 4px; padding: 0; border: 0; }
+.app-doc h3 { font-size: 16.5px; line-height: 1.5; margin: 28px 0 6px; }
+.app-doc .para { display: flex; gap: .5em; margin: 6px 0; }
+.app-doc .pn { flex: none; color: var(--muted); }
+.foot-links a + a { margin-top: 2px; }
+@media (max-width: 760px) {
+  .terms { grid-template-columns: minmax(0, 1fr); gap: 0; padding-top: 12px; }
+  .side { position: sticky; top: 56px; z-index: 10; margin: 0 -16px; padding: 8px 16px; background: rgba(255, 255, 255, .95); border-bottom: 1px solid var(--line); }
+  .side-t { display: none; }
+  .side-nav { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 2px; -webkit-overflow-scrolling: touch; }
+  .side-nav a { flex: none; white-space: nowrap; padding: 8px 14px; border-radius: 999px; font-size: 13.5px; background: var(--g-bg); }
+}
+
 /* ---------- contact ---------- */
 .contact-btns { display: flex; gap: 12px; justify-content: flex-start; flex-wrap: wrap; }
 .contact-btns [hidden] { display: none; }

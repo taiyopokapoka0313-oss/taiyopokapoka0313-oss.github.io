@@ -76,9 +76,13 @@
   }
 
   // プライバシーポリシー：日本語は privacy/、それ以外の言語は英語版 privacy/en/
+  // 免責事項：日本語は terms/（アプリ別）、それ以外の言語は英語版 terms/en/（FaceUPのみ）
   var privLink = document.getElementById("privacy-link");
+  var termsLink = document.getElementById("terms-link");
   function setPrivacy() {
-    if (privLink) { privLink.href = (I.lang && I.lang() !== "ja") ? "privacy/en/" : "privacy/"; }
+    var ja = !(I.lang && I.lang() !== "ja");
+    if (privLink) { privLink.href = ja ? "privacy/" : "privacy/en/"; }
+    if (termsLink) { termsLink.href = ja ? "terms/" : "terms/en/"; }
   }
   setPrivacy();
 
