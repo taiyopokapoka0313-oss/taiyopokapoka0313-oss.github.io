@@ -86,6 +86,12 @@
   }
   setPrivacy();
 
+  // URLが入ったアプリは、「公開予定」の表示を消す
+  var soons = document.querySelectorAll("[data-soon-for]");
+  for (var k = 0; k < soons.length; k++) {
+    if ((S.stores || {})[soons[k].getAttribute("data-soon-for")]) { soons[k].hidden = true; }
+  }
+
   document.addEventListener("langchange", function () { setMail(); setStores(); setForm(); setPrivacy(); });
 
   // ---- トップのアイコン列を横にループ表示（動きを減らす設定の人は、そのまま中央に並べる） ----

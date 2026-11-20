@@ -46,8 +46,10 @@ window.SITE = {
     }
   },
 
-  // App Store のリンク（QC3級・QC2級は index.html に直接書いてある。空のものは、グレーで押せない表示になる）
+  // App Store のリンク（toppaのQC3級・QC2級は index.html に直接書いてある。空のものは、グレーで押せない表示になる）
   stores: {
-    faceup: "https://apps.apple.com/jp/app/id6790339306"
+    faceup: "https://apps.apple.com/jp/app/id6790339306",
+    // shikaku QC3級：公開されたら、ここにURLを入れる（例：https://apps.apple.com/jp/app/id6834291242）。入れると、「公開予定」の表示が消えてボタンが使えるようになる
+    shikakuQc3: ""
   }
 };

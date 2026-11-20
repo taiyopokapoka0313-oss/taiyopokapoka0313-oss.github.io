@@ -118,22 +118,24 @@ img { max-width: 100%; display: block; }
 .sec { padding: 64px 0; }
 .sec h2 { font-size: clamp(24px, 4vw, 32px); margin: 0 0 28px; }
 
-/* ---------- apps（2列・1アプリ＝1枚） ---------- */
-.cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
-.card {
+/* ---------- apps（1アプリ＝1行：ジャンル／アイコン／アプリ名／App Store／Google Play） ---------- */
+.rows { display: grid; gap: 10px; }
+.series { margin: 22px 0 2px; font-size: 18px; line-height: 1.4; padding-left: 12px; border-left: 4px solid var(--v-bd); }
+.row {
   --c-bg: var(--o-bg); --c-bd: var(--o-bd); --c-tx: var(--o-tx);
-  position: relative; display: grid; grid-template-columns: 76px minmax(0, 1fr) minmax(112px, auto); align-items: center; column-gap: 20px;
-  padding: 40px 22px 18px; background: var(--c-bg); border: 1.5px solid var(--c-bd); border-radius: var(--radius);
+  display: grid; grid-template-columns: 112px 56px minmax(0, 1fr) auto; align-items: center; column-gap: 16px;
+  padding: 12px 18px; background: var(--c-bg); border: 1.5px solid var(--c-bd); border-radius: var(--radius);
 }
-.card.g-study { --c-bg: var(--v-bg); --c-bd: var(--v-bd); --c-tx: var(--v-tx); }
-.card.g-soon { --c-bg: var(--g-bg); --c-bd: var(--g-bd); --c-tx: var(--g-tx); }
-.card .icon { width: 76px; height: 76px; border-radius: 18px; box-shadow: 0 3px 8px rgba(0, 0, 0, .15); }
-.card h3 { margin: 0; font-size: 17px; line-height: 1.5; min-height: 3em; display: flex; align-items: center; }
+.row.g-biz { --c-bg: var(--v-bg); --c-bd: var(--v-bd); --c-tx: var(--v-tx); }
+.row .icon { width: 56px; height: 56px; border-radius: 13px; box-shadow: 0 3px 8px rgba(0, 0, 0, .15); }
+.row .name { margin: 0; font-size: 16px; line-height: 1.5; display: flex; flex-wrap: wrap; align-items: center; gap: 2px 10px; }
 .tag {
-  position: absolute; top: -1.5px; left: -1.5px; border-radius: var(--radius) 0 14px 0; padding: 3px 16px 3px 18px;
-  font-size: 11px; font-weight: 800; line-height: 1.7; color: var(--c-tx); background: var(--c-bg); border: 1.5px solid var(--c-bd);
+  justify-self: start; border-radius: 999px; padding: 3px 12px; font-size: 12px; font-weight: 800; line-height: 1.6;
+  color: var(--c-tx); background: #fff; border: 1.5px solid var(--c-bd);
 }
-.links { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
+.soon { font-size: 11.5px; font-weight: 800; color: var(--g-tx); background: #fff; border: 1.5px solid var(--g-bd); border-radius: 999px; padding: 0 10px; line-height: 1.7; white-space: nowrap; }
+.soon[hidden] { display: none; }
+.links { display: flex; flex-direction: row; gap: 8px; align-items: center; }
 .badge { display: inline-block; line-height: 0; }
 .badge img { height: 40px; width: auto; max-width: none; }
 .store.off {
@@ -141,16 +143,13 @@ img { max-width: 100%; display: block; }
   font-size: 13px; font-weight: 700; border-radius: 999px; text-decoration: none;
   background: var(--g-bg); color: var(--g-tx); border: 1.5px solid var(--g-bd); cursor: not-allowed; pointer-events: none;
 }
-/* 画面がせまいとき：アイコン・タイトル・ダウンロードを、1行のまま小さめに並べる */
-@media (max-width: 899px) {
-  .card { grid-template-columns: 56px minmax(0, 1fr) minmax(109px, auto); column-gap: 12px; padding: 36px 16px 14px; }
-  .card .icon { width: 56px; height: 56px; border-radius: 14px; }
-  .card h3 { font-size: 15px; min-height: 0; }
-}
-@media (max-width: 759px) { .cards { grid-template-columns: 1fr; } }
-@media (max-width: 480px) {
-  .card { column-gap: 10px; padding: 36px 12px 14px; }
-  .card .icon { width: 48px; height: 48px; border-radius: 12px; }
+/* スマホ：1行目＝ジャンル、2行目＝アイコン＋アプリ名、3行目＝ダウンロード */
+@media (max-width: 719px) {
+  .row { grid-template-columns: 52px minmax(0, 1fr); grid-template-areas: "tag tag" "icon name" "links links"; row-gap: 8px; column-gap: 12px; padding: 12px 14px; }
+  .row .tag { grid-area: tag; }
+  .row .icon { grid-area: icon; width: 52px; height: 52px; border-radius: 12px; }
+  .row .name { grid-area: name; font-size: 15px; }
+  .row .links { grid-area: links; }
 }
 
 /* ---------- 文書ページ（プライバシーポリシーなど） ---------- */
