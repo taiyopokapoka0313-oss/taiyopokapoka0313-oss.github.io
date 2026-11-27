@@ -180,8 +180,9 @@ img { max-width: 100%; display: block; }
 .terms-js .app-doc + .app-doc { margin-top: 0; padding-top: 0; border-top: 0; }
 .app-doc > h2 { font-size: clamp(22px, 4vw, 28px); margin: 24px 0 4px; padding: 0; border: 0; }
 .app-doc h3 { font-size: 16.5px; line-height: 1.5; margin: 28px 0 6px; }
-.app-doc .para { display: flex; gap: .5em; margin: 6px 0; }
-.app-doc .pn { flex: none; color: var(--muted); }
+/* 番号つきの段落：番号は左に固定し、本文は1つの流れにする（flex にすると、本文中のリンクが別の縦の列に分かれる） */
+.app-doc .para { position: relative; padding-left: 1.35em; margin: 6px 0; }
+.app-doc .pn { position: absolute; left: 0; color: var(--muted); }
 .foot-links a + a { margin-top: 2px; }
 @media (max-width: 760px) {
   .terms { grid-template-columns: minmax(0, 1fr); gap: 0; padding-top: 12px; }
