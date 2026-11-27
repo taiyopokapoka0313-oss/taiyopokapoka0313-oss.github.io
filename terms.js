@@ -6,6 +6,10 @@
   if (!docs.length || !links.length) { return; }
   document.documentElement.classList.add("terms-js");
 
+  // アプリを指定して開いたとき（#toppa-qc2 など）は、ページの先頭を表示する。
+  // ブラウザはIDの位置まで自動でスクロールし、上のメニューにアプリ名が隠れるので、行き先が先頭になるように大きな余白を指定する。
+  docs.forEach(function (d) { d.style.scrollMarginTop = "2000px"; });
+
   function show(id, scroll) {
     var found = docs.some(function (d) { return d.id === id; });
     if (!found) { id = docs[0].id; }
@@ -30,6 +34,8 @@
     if (/-a\d+$/.test(h)) {
       var el = document.getElementById(h);
       if (el) { el.scrollIntoView(); }
+    } else {
+      window.scrollTo({ top: 0, behavior: "instant" });   // 自動のスクロールが先に済んでいた場合の戻し
     }
   }
 
